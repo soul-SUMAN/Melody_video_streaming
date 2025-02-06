@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Video Streaming</title>
+    <script src="https://kit.fontawesome.com/4ff34aa412.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to Melody Video Streaming</h1>
+        <nav>
+            <ul>
+                <li id="profile-info">
+                    <div id="user-details">
+                        <i class="fa-solid fa-user"></i>
+                        <span id="username">JohnDoe</span>
+                        <small id="user-type">Admin</small>
+                    </div>
+                    
+                </li>
+                
+                <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <a href="#" onclick="logout()">Logout</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-address-card"></i>
+                    <a href="register.html">Register</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-upload"></i>
+                    <a href="admin.html">Upload</a>
+                </li>
+            
+                <li>
+                    <input type="text" id="search-input" placeholder="Search videos..." />
+                    <button id="search-btn">Search</button>
+                </li>
+                
+
+            </ul>
+        </nav>
+       
+    </header>
+    <main>
+        <!-- <p style="align-items: center;">Enjoy streaming videos on Melody! Please log in or register to continue.</p> -->
+        <section id="video-list">
+            <!-- Videos will be dynamically inserted here -->
+        </section>
+    </main>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
