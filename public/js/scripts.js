@@ -1,5 +1,5 @@
 
-
+const backendURL = "https://moodie-melody.onrender.com";
 console.log("JavaScript loaded successfully");
 
 // Login form submission
@@ -12,7 +12,7 @@ if (loginForm) {
 
         console.log('Attempting login with:', { username });
         try {
-            const response = await fetch('http://localhost:5000/users/login', {
+            const response = await fetch('${backendURL}/users/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: username, password }),
@@ -48,7 +48,7 @@ if (registerForm) {
 
         console.log('Attempting registration with:', { username });
         try {
-            const response = await fetch('http://localhost:5000/users/register', {
+            const response = await fetch('${backendURL}/users/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: username, password }),
@@ -88,7 +88,7 @@ if (uploadForm) {
         const formData = new FormData(uploadForm);  // Create FormData object to handle file upload
 
         try {
-            const response = await fetch('http://localhost:5000/videos/upload', {
+            const response = await fetch('${backendURL}/videos/upload', {
                 method: 'POST',
                 headers: {
                     'Authorization': JSON.stringify(loggedInUser), // Pass user details
@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchVideos = async (query = '') => {
         try {
             const endpoint = query
-                ? `http://localhost:5000/videos/search?title=${query}`
-                : 'http://localhost:5000/videos/all';
+                ? `${backendURL}/videos/search?title=${query}`
+                : '${backendURL}/videos/all';
             const response = await fetch(endpoint);
             if (response.ok) {
                 const videos = await response.json();
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="video-card">
                             <div class="main-video">
                                 <video controls width="800">
-                                    <source src="http://localhost:5000${video.videoPath}" type="video/mp4">
+                                    <source src="${backendURL}${video.videoPath}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -205,7 +205,7 @@ document.addEventListener('click', async (e) => {
                         alert('You need to log in as an admin to delete videos.');
                         return;
                     }
-                const response = await fetch(`http://localhost:5000/videos/${videoId}`, {
+                const response = await fetch(`${backendURL}/videos/${videoId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': JSON.stringify(loggedInUser), // Pass user details
