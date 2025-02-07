@@ -18,6 +18,7 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
     next();
 });
 
@@ -31,7 +32,9 @@ app.get('/', (req, res) => {
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
     setHeaders: (res, path) => {
-        res.set('Content-Type', 'video/mp4');
+        if (path.endsWith('.mp4')) {
+            res.setHeader('Content-Type', 'video/mp4');
+        }
     }
 }));
 
