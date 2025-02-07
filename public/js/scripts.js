@@ -12,7 +12,7 @@ if (loginForm) {
 
         console.log('Attempting login with:', { username });
         try {
-            const response = await fetch('${backendURL}/users/login', {
+            const response = await fetch(`${backendURL}/users/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: username, password }),
@@ -48,7 +48,7 @@ if (registerForm) {
 
         console.log('Attempting registration with:', { username });
         try {
-            const response = await fetch('${backendURL}/users/register', {
+            const response = await fetch(`${backendURL}/users/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: username, password }),
@@ -88,7 +88,7 @@ if (uploadForm) {
         const formData = new FormData(uploadForm);  // Create FormData object to handle file upload
 
         try {
-            const response = await fetch('${backendURL}/videos/upload', {
+            const response = await fetch(`${backendURL}/videos/upload`, {
                 method: 'POST',
                 headers: {
                     'Authorization': JSON.stringify(loggedInUser), // Pass user details
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const endpoint = query
                 ? `${backendURL}/videos/search?title=${query}`
-                : '${backendURL}/videos/all';
+                : `${backendURL}/videos/all`;
             const response = await fetch(endpoint);
             if (response.ok) {
                 const videos = await response.json();
