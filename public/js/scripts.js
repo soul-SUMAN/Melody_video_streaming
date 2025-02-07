@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="video-card">
                             <div class="main-video">
                                 <video controls width="800">
-                                    <source src="${backendURL}${video.videoPath}" type="video/mp4">
+                                    <source src="${video.videoPath}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
