@@ -49,9 +49,14 @@ app.use('/videos', videoRoutes);
 console.log('Video routes initialized');
 
 
-app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+// Serve frontend but don't override API routes
+app.use((req, res, next) => {
+    if (req.path.startsWith('/uploads') || req.path.startsWith('/users') || req.path.startsWith('/videos')) {
+        return next();
+    }
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
 
 
 const PORT = process.env.PORT || 8080;
