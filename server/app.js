@@ -19,6 +19,7 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+    res.setHeader("Access-Control-Allow-Origin", "https://res.cloudinary.com");
     next();
 });
 
@@ -30,19 +31,19 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.mp4')) {
-            res.setHeader('Content-Type', 'video/mp4');
-        }
-    }
-}));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+//     setHeaders: (res, path) => {
+//         if (path.endsWith('.mp4')) {
+//             res.setHeader('Content-Type', 'video/mp4');
+//         }
+//     }
+// }));
 
 
-app.use('/uploads', (req, res, next) => {
-    console.log(`Serving file: ${req.url}`);
-    next();
-});
+// app.use('/uploads', (req, res, next) => {
+//     console.log(`Serving file: ${req.url}`);
+//     next();
+// });
 
 
 app.use('/users', userRoutes);
@@ -53,12 +54,20 @@ console.log('Video routes initialized');
 
 
 // Serve frontend but don't override API routes
+// app.use((req, res, next) => {
+//     if (req.path.startsWith('/uploads') || req.path.startsWith('/users') || req.path.startsWith('/videos')) {
+//         return next();
+//     }
+//     res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
+
 app.use((req, res, next) => {
-    if (req.path.startsWith('/uploads') || req.path.startsWith('/users') || req.path.startsWith('/videos')) {
+    if (req.path.startsWith('/api/') || req.path.startsWith('/users') || req.path.startsWith('/videos')) {
         return next();
     }
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
 
 
 

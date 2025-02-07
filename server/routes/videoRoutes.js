@@ -1,38 +1,74 @@
 const express = require('express');
 const multer = require('multer');
 const Video = require('../models/Video');
+const cloudinary = require('../cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const { verifyAdmin } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');  // Save uploaded videos in the 'uploads/' folder
+// // Configure multer for file uploads
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, 'uploads/');  // Save uploaded videos in the 'uploads/' folder
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + '-' + file.originalname);  // Generate unique file name
+//     }
+// });
+
+// const upload = multer({ storage: storage });
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'melody_videos',  // Name of the folder in Cloudinary
+        resource_type: 'video',  // Important: Ensure Cloudinary treats it as a video
     },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);  // Generate unique file name
-    }
 });
 
 const upload = multer({ storage: storage });
 
+
 // Upload Video
-router.post('/upload', verifyAdmin, upload.single('video'), async (req, res) => {
+// router.post('/upload', verifyAdmin, upload.single('video'), async (req, res) => {
+//     const { title, description } = req.body;
+//     console.log('Upload video request received:', { title });
+//     const videoPath = `/uploads/${req.file.filename}`;
+
+//     try {
+//         const video = new Video({ title, description, videoPath });
+//         await video.save();
+//         console.log('Video uploaded successfully:', title);
+//         res.status(201).send('Video uploaded successfully');
+//     } catch (error) {
+//         console.error('Error uploading video:', error);
+//         res.status(400).send('Error uploading video');
+//     }
+// });
+
+router.post('/upload', upload.single('video'), async (req, res) => {
     const { title, description } = req.body;
-    console.log('Upload video request received:', { title });
-    const videoPath = `/uploads/${req.file.filename}`;
 
     try {
-        const video = new Video({ title, description, videoPath });
+        if (!req.file || !req.file.path) {
+            return res.status(400).json({ error: 'Failed to upload video' });
+        }
+
+        // Save video URL from Cloudinary to MongoDB
+        const video = new Video({
+            title,
+            description,
+            videoPath: req.file.path,  // Cloudinary URL
+        });
+
         await video.save();
-        console.log('Video uploaded successfully:', title);
-        res.status(201).send('Video uploaded successfully');
+        res.status(201).json({ message: 'Video uploaded successfully', video });
     } catch (error) {
         console.error('Error uploading video:', error);
-        res.status(400).send('Error uploading video');
+        res.status(500).json({ error: 'Error uploading video' });
     }
 });
+
 
 // Fetch Videos
 router.get('/all', async (req, res) => {
