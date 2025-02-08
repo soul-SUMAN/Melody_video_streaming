@@ -27,26 +27,31 @@ A **full-stack video streaming platform** built with **Node.js, Express, MongoDB
 
 ## **🛠️ Installation & Setup**
 ### **1️⃣ Clone the Repository**
-git clone https://github.com/soul-SUMAN/Melody_video_streaming.git
-cd Melodyv_ideo_streaming
+-git clone https://github.com/soul-SUMAN/Melody_video_streaming.git
+-cd Melody_video_streaming
 
 
-##**2️⃣ Install Dependencies**
+## **2️⃣ Install Dependencies**
 
 npm install
 
-##**3️⃣ Start the Server**
+## **3️⃣ Start the Server**
 
 npm server/app.js
 
 Your server will run on http://localhost:8080.
 
-##**To use Admin Features use Id**
+---
+
+## **To use Admin Features use Id**
+
     Name      |   Password
 ------------- | -------------
     Admin     |     00932
 
-##**🧑‍💻 API Endpoints**
+---
+
+## **🧑‍💻 API Endpoints**
 
 🔹 User Authentication
 
@@ -64,14 +69,16 @@ POST	| /api/videos/upload  |  Upload a new video
 GET 	| /api/videos   	  |  Fetch all videos
 GET	    | /api/videos/:id	  |  Fetch a single video
 
+---
 
-##**🌍 Deployment**
+## **🌍 Deployment**
 
 Backend frontend both Hosted on: Render
 link: https://moodie-melody.onrender.com/
 
- 
-##**🤝 Contributing**
+ ---
+
+## **🤝 Contributing**
 We welcome contributions!
 
 -1.Fork the repo
@@ -80,10 +87,12 @@ We welcome contributions!
 -4.Push to your branch (git push origin feature-name)
 -5.Create a Pull Request
 
-##**📜 License**
+---
+
+## **📜 License**
 This project is licensed under the MIT License.
 
-##**📞 Contact**
+## **📞 Contact**
 -🔹 Developer: Suman mondal (soul-SUMAN)
 -🔹 Email: sumanmondal1009@gmail.com
 -🔹 LinkedIn: https://www.linkedin.com/in/suman-mondal-755659266/
