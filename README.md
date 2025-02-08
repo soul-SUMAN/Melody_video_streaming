@@ -27,8 +27,8 @@ A **full-stack video streaming platform** built with **Node.js, Express, MongoDB
 
 ## **🛠️ Installation & Setup**
 ### **1️⃣ Clone the Repository**
--git clone https://github.com/soul-SUMAN/Melody_video_streaming.git
--cd Melody_video_streaming
+- git clone https://github.com/soul-SUMAN/Melody_video_streaming.git
+- cd Melody_video_streaming
 
 
 ## **2️⃣ Install Dependencies**
@@ -83,11 +83,11 @@ link: https://moodie-melody.onrender.com/
 ## **🤝 Contributing**
 We welcome contributions!
 
-- 1.Fork the repo
-- 2.Create a new branch (git checkout -b feature-name)
-- 3.Commit your changes (git commit -m "Added new feature")
-- 4.Push to your branch (git push origin feature-name)
-- 5.Create a Pull Request
+- Fork the repo
+- Create a new branch (git checkout -b feature-name)
+- Commit your changes (git commit -m "Added new feature")
+- Push to your branch (git push origin feature-name)
+- Create a Pull Request
 
 ---
 
@@ -95,9 +95,9 @@ We welcome contributions!
 This project is licensed under the MIT License.
 
 ## **📞 Contact**
-- 🔹 Developer: Suman mondal (soul-SUMAN)
-- 🔹 Email: sumanmondal1009@gmail.com
-- 🔹 LinkedIn: https://www.linkedin.com/in/suman-mondal-755659266/
-- 🔹 GitHub: https://github.com/soul-SUMAN/Melody_video_streaming.git
+-  Developer: Suman mondal (soul-SUMAN)
+-  Email: sumanmondal1009@gmail.com
+-  LinkedIn: https://www.linkedin.com/in/suman-mondal-755659266/
+-  GitHub: https://github.com/soul-SUMAN/Melody_video_streaming.git
 
 
