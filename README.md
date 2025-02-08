@@ -43,11 +43,13 @@ Your server will run on http://localhost:8080.
 
 ---
 
-## **To use Admin Features use Id**
+## **To use Admin Features use sample Id**
 
-    Name      |   Password
-------------- | -------------
-    Admin     |     00932
+
+Name      |   Password
+--------- | -------------
+Admin     |     00932
+
 
 ---
 
@@ -81,11 +83,11 @@ link: https://moodie-melody.onrender.com/
 ## **🤝 Contributing**
 We welcome contributions!
 
--1.Fork the repo
--2.Create a new branch (git checkout -b feature-name)
--3.Commit your changes (git commit -m "Added new feature")
--4.Push to your branch (git push origin feature-name)
--5.Create a Pull Request
+- 1.Fork the repo
+- 2.Create a new branch (git checkout -b feature-name)
+- 3.Commit your changes (git commit -m "Added new feature")
+- 4.Push to your branch (git push origin feature-name)
+- 5.Create a Pull Request
 
 ---
 
@@ -93,9 +95,9 @@ We welcome contributions!
 This project is licensed under the MIT License.
 
 ## **📞 Contact**
--🔹 Developer: Suman mondal (soul-SUMAN)
--🔹 Email: sumanmondal1009@gmail.com
--🔹 LinkedIn: https://www.linkedin.com/in/suman-mondal-755659266/
--🔹 GitHub: https://github.com/soul-SUMAN/Melody_video_streaming.git
+- 🔹 Developer: Suman mondal (soul-SUMAN)
+- 🔹 Email: sumanmondal1009@gmail.com
+- 🔹 LinkedIn: https://www.linkedin.com/in/suman-mondal-755659266/
+- 🔹 GitHub: https://github.com/soul-SUMAN/Melody_video_streaming.git
 
 
