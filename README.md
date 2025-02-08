@@ -27,7 +27,6 @@ A **full-stack video streaming platform** built with **Node.js, Express, MongoDB
 
 ## **🛠️ Installation & Setup**
 ### **1️⃣ Clone the Repository**
-```sh
 git clone https://github.com/soul-SUMAN/Melody_video_streaming.git
 cd Melodyv_ideo_streaming
 
